@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaveesha Gimhani | Portfolio</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-gray-100 antialiased overflow-x-hidden">
+  <div id="scrollProgressBar" class="scroll-progress"></div>
+
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-blob ambient-blob-a"></div>
+    <div class="ambient-blob ambient-blob-b"></div>
+    <div class="ambient-blob ambient-blob-c"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor" class="fixed w-4 h-4 bg-pink-500 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100"></div>
+  <div id="cursor-trail" class="fixed w-8 h-8 border-2 border-pink-500 rounded-full pointer-events-none z-40 transition-all duration-300"></div>
+
+  <!-- Loading Animation -->
+  <div id="pageLoader" class="fixed inset-0 bg-slate-900 flex items-center justify-center z-50">
+    <div class="text-center">
+      <div class="w-16 h-16 border-4 border-pink-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+      <p class="text-pink-400 animate-pulse">Loading...</p>
+    </div>
+  </div>
+
+  <header class="fixed inset-x-0 top-0 z-40 bg-black/20 backdrop-blur-md border-b border-white/10" id="mainHeader">
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between p-4">
+      <a href="#home" class="text-2xl font-bold tracking-wider bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Kaveesha</a>
+      <div class="flex items-center gap-3 md:gap-5">
+        <button id="mobileMenuBtn" class="inline-flex items-center justify-center rounded-lg glass-card p-2 text-gray-200 md:hidden hover:bg-white/10 transition-all" aria-label="Toggle menu">
+          <i data-feather="menu" class="w-5 h-5"></i>
+        </button>
+        <nav class="hidden gap-6 text-sm font-medium md:flex" id="desktopNav">
+          <a href="#home" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Home</a>
+          <a href="#about" class="nav-link hover:text-pink-400 transition-all duration-300 relative">About</a>
+          <a href="#timeline" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Timeline</a>
+          <a href="#skills" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Skills</a>
+          <a href="#services" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Services</a>
+          <a href="#projects" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Projects</a>
+          <a href="#github" class="nav-link hover:text-pink-400 transition-all duration-300 relative">GitHub</a>
+          <a href="#contact" class="nav-link hover:text-pink-400 transition-all duration-300 relative">Contact</a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="rounded-lg glass-card px-3 py-2 text-xs font-semibold text-purple-300 transition-all hover:bg-white/10">
+          <i data-feather="sun" class="w-4 h-4"></i>
+        </button>
+        <a href="kaveesha-cv-2026.pdf" download="kaveesha CV 2026 new.pdf" class="rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-2 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-pink-500/25 transform hover:scale-105">Download CV</a>
+      </div>
+    </div>
+    <div id="mobileNav" class="hidden border-t border-white/10 glass-card md:hidden">
+      <div class="flex flex-col p-4 gap-2">
+        <a href="#home" class="nav-link-mobile">Home</a>
+        <a href="#about" class="nav-link-mobile">About</a>
+        <a href="#timeline" class="nav-link-mobile">Timeline</a>
+        <a href="#skills" class="nav-link-mobile">Skills</a>
+        <a href="#services" class="nav-link-mobile">Services</a>
+        <a href="#projects" class="nav-link-mobile">Projects</a>
+        <a href="#github" class="nav-link-mobile">GitHub</a>
+        <a href="#contact" class="nav-link-mobile">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20"></div>
+      <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl animate-pulse parallax-node" data-parallax="0.15"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000 parallax-node" data-parallax="0.25"></div>
+
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="space-y-6" data-aos="fade-right">
+          <p class="text-pink-400 text-lg font-medium animate-pulse">Welcome to my portfolio</p>
+          <h1 class="text-5xl lg:text-6xl font-black leading-tight">
+            Hi, I'm <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Kaveesha Gimhani</span>
+          </h1>
+          <div class="text-xl text-gray-300">
+            <span id="typewriter" class="text-purple-300 font-semibold"></span>
+          </div>
+          <p class="text-gray-300 text-lg leading-relaxed">
+            Software Engineering Undergraduate | AI Enthusiast | Java & Web Developer
+          </p>
+          <div class="flex gap-4 flex-wrap">
+            <a href="#projects" class="group relative rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-3 text-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-pink-500/25 transform hover:scale-105 overflow-hidden">
+              <span class="relative z-10">View Projects</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            <a href="#contact" class="rounded-lg glass-card px-6 py-3 text-sm font-semibold text-gray-200 transition-all hover:bg-white/10 hover:text-white transform hover:scale-105">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="relative" data-aos="fade-left">
+          <div class="glass-card p-8 max-w-md mx-auto">
+            <h2 class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Ask My AI Assistant</h2>
+            <p class="text-gray-400 text-sm mb-6">Get instant answers about my skills, projects, and experience.</p>
+
+            <div id="chatContainer" class="space-y-4 mb-4 max-h-80 overflow-y-auto">
+              <div class="flex gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                  <i data-feather="bot" class="w-4 h-4 text-white"></i>
+                </div>
+                <div class="glass-card p-3 max-w-xs">
+                  <p class="text-sm text-gray-300">Hello! I'm Kaveesha's AI assistant. Ask me anything about her skills, projects, or experience!</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4 flex flex-wrap gap-2" id="quickQuestions">
+              <button class="quick-question-btn" data-question="What are your skills?">What are your skills?</button>
+              <button class="quick-question-btn" data-question="Show projects">Show projects</button>
+              <button class="quick-question-btn" data-question="What services do you offer?">Services</button>
+              <button id="clearChatBtn" class="quick-question-btn">Clear Chat</button>
+            </div>
+
+            <div id="imageDropZone" class="chat-drop-zone mb-4" tabindex="0" role="button" aria-label="Upload an image to chat">
+              <input id="imageUploadInput" type="file" accept="image/*" class="hidden" />
+              <p class="text-xs text-gray-300">Drag and drop image here, or click to upload</p>
+            </div>
+
+            <div class="flex gap-2">
+              <input id="aiInput" type="text" placeholder="Type your question..." class="flex-1 rounded-lg glass-card px-4 py-2 text-sm text-gray-100 outline-none focus:ring-2 focus:ring-pink-500 transition-all" />
+              <button id="askBtn" class="rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 p-2 text-white transition-all hover:shadow-lg hover:shadow-pink-500/25 transform hover:scale-105">
+                <i data-feather="send" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div id="aiStatus" class="mt-3 text-sm text-pink-400 opacity-0 transition-opacity"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">About Me</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="glass-card p-8 lg:p-12" data-aos="fade-up" data-aos-delay="200">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <p class="text-gray-300 text-lg leading-relaxed">
+                Motivated Software Engineering undergraduate with a strong interest in AI and web development. Experienced in building real-world applications using Java, JavaScript, and modern web technologies. Currently developing AI-powered solutions using APIs like OpenRouter. Passionate about problem-solving and continuous learning.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <div class="flex items-center gap-2 glass-card px-4 py-2">
+                  <i data-feather="code" class="w-4 h-4 text-pink-400"></i>
+                  <span class="text-sm text-gray-300">Full-Stack Developer</span>
+                </div>
+                <div class="flex items-center gap-2 glass-card px-4 py-2">
+                  <i data-feather="brain" class="w-4 h-4 text-purple-400"></i>
+                  <span class="text-sm text-gray-300">AI Enthusiast</span>
+                </div>
+                <div class="flex items-center gap-2 glass-card px-4 py-2">
+                  <i data-feather="coffee" class="w-4 h-4 text-pink-400"></i>
+                  <span class="text-sm text-gray-300">Problem Solver</span>
+                </div>
+              </div>
+            </div>
+            <div class="relative">
+              <div class="w-80 h-80 mx-auto relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-2xl animate-pulse"></div>
+                <div class="relative w-full h-full glass-card rounded-full flex items-center justify-center">
+                  <div class="text-center">
+                    <img src="profile.jpeg" alt="Kaveesha Gimhani profile photo" class="w-32 h-32 mx-auto mb-4 rounded-full object-cover ring-4 ring-pink-500/40 shadow-lg shadow-pink-500/20" />
+                    <h3 class="text-xl font-bold text-white">Kaveesha Gimhani</h3>
+                    <p class="text-gray-400">Software Engineer</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-24 px-4 bg-black/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Journey Lab</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+          <p class="text-gray-400 mt-4">Interactive timeline with milestones, growth snapshots, and study journey highlights.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-4 mb-8" id="journeyStats" data-aos="fade-up" data-aos-delay="100">
+          <article class="glass-card p-5 text-center">
+            <p class="text-sm text-gray-400 uppercase tracking-wide">Education Milestones</p>
+            <p class="text-3xl font-extrabold text-white mt-2" data-count="4">0</p>
+          </article>
+          <article class="glass-card p-5 text-center">
+            <p class="text-sm text-gray-400 uppercase tracking-wide">Years of Progress</p>
+            <p class="text-3xl font-extrabold text-white mt-2" data-count="6">0</p>
+          </article>
+          <article class="glass-card p-5 text-center">
+            <p class="text-sm text-gray-400 uppercase tracking-wide">Current Focus</p>
+            <p class="text-3xl font-extrabold text-white mt-2" data-count="3">0</p>
+          </article>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up" data-aos-delay="150">
+          <button class="journey-filter active" data-filter="all">All</button>
+          <button class="journey-filter" data-filter="education">Education</button>
+          <button class="journey-filter" data-filter="achievement">Achievement</button>
+          <button class="journey-filter" data-filter="leadership">Leadership</button>
+        </div>
+
+        <div class="relative timeline-wrap">
+          <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-purple-500 to-pink-500 rounded-full timeline-line"></div>
+
+          <div class="space-y-8" id="journeyList">
+            <div class="flex items-center justify-center journey-card" data-type="education" data-aos="fade-right">
+              <div class="glass-card p-6 max-w-md w-full ml-auto mr-8 relative">
+                <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900"></div>
+                <div class="text-right">
+                  <p class="text-xs tracking-[0.2em] uppercase text-pink-400 mb-2">Present</p>
+                  <h3 class="text-xl font-bold text-white mb-2">BSc Software Engineering</h3>
+                  <p class="text-purple-300 font-semibold">Birmingham City University, UK</p>
+                  <p class="text-gray-400 text-sm">Expected: 2026</p>
+                  <p class="text-gray-300 text-sm mt-2">Developing AI-powered and web-based applications while strengthening full-stack architecture skills.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center journey-card" data-type="achievement" data-aos="fade-left">
+              <div class="glass-card p-6 max-w-md w-full mr-auto ml-8 relative">
+                <div class="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900"></div>
+                <div>
+                  <p class="text-xs tracking-[0.2em] uppercase text-pink-400 mb-2">2024</p>
+                  <h3 class="text-xl font-bold text-white mb-2">HND Software Engineering</h3>
+                  <p class="text-purple-300 font-semibold">UK Awards</p>
+                  <p class="text-gray-400 text-sm">Completed with Distinction</p>
+                  <p class="text-gray-300 text-sm mt-2">Focused on practical software construction, databases, and collaborative delivery workflows.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center journey-card" data-type="education" data-aos="fade-right">
+              <div class="glass-card p-6 max-w-md w-full ml-auto mr-8 relative">
+                <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900"></div>
+                <div class="text-right">
+                  <p class="text-xs tracking-[0.2em] uppercase text-pink-400 mb-2">2023</p>
+                  <h3 class="text-xl font-bold text-white mb-2">A/L Mathematics</h3>
+                  <p class="text-purple-300 font-semibold">Good Shepherd Convent, Colombo 13</p>
+                  <p class="text-gray-300 text-sm mt-2">Built strong analytical foundations and mathematical thinking for engineering studies.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center journey-card" data-type="leadership" data-aos="fade-left">
+              <div class="glass-card p-6 max-w-md w-full mr-auto ml-8 relative">
+                <div class="absolute -right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-slate-900"></div>
+                <div>
+                  <p class="text-xs tracking-[0.2em] uppercase text-pink-400 mb-2">2020</p>
+                  <h3 class="text-xl font-bold text-white mb-2">Ordinary Level & School Leadership</h3>
+                  <p class="text-purple-300 font-semibold">St'Anne's Girls School, Wattala</p>
+                  <p class="text-gray-300 text-sm mt-2">Grew communication, responsibility, and discipline through prefect-level school activities.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Technical Skills</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10" id="skillRings">
+          <div class="glass-card p-6 text-center skill-ring-card" data-percent="90">
+            <div class="skill-ring" style="--p:90"><span>90%</span></div>
+            <p class="text-gray-300 mt-3">Frontend</p>
+          </div>
+          <div class="glass-card p-6 text-center skill-ring-card" data-percent="85">
+            <div class="skill-ring" style="--p:85"><span>85%</span></div>
+            <p class="text-gray-300 mt-3">Backend</p>
+          </div>
+          <div class="glass-card p-6 text-center skill-ring-card" data-percent="95">
+            <div class="skill-ring" style="--p:95"><span>95%</span></div>
+            <p class="text-gray-300 mt-3">AI Tools</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Languages -->
+          <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="text-xl font-bold text-purple-300 mb-6 flex items-center gap-2">
+              <i data-feather="code" class="w-5 h-5 text-pink-400"></i>
+              Languages
+            </h3>
+            <div class="space-y-4">
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">Java</span>
+                  <span class="text-sm text-pink-400">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">JavaScript</span>
+                  <span class="text-sm text-pink-400">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">Python</span>
+                  <span class="text-sm text-pink-400">75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">PHP</span>
+                  <span class="text-sm text-pink-400">70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frontend -->
+          <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="text-xl font-bold text-purple-300 mb-6 flex items-center gap-2">
+              <i data-feather="layout" class="w-5 h-5 text-pink-400"></i>
+              Frontend
+            </h3>
+            <div class="space-y-4">
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">HTML/CSS</span>
+                  <span class="text-sm text-pink-400">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">TailwindCSS</span>
+                  <span class="text-sm text-pink-400">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">React</span>
+                  <span class="text-sm text-pink-400">75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Tools -->
+          <div class="glass-card p-6" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-xl font-bold text-purple-300 mb-6 flex items-center gap-2">
+              <i data-feather="server" class="w-5 h-5 text-pink-400"></i>
+              Backend & Tools
+            </h3>
+            <div class="space-y-4">
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">Spring Boot</span>
+                  <span class="text-sm text-pink-400">80%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">MySQL</span>
+                  <span class="text-sm text-pink-400">85%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="flex justify-between mb-2">
+                  <span class="text-sm text-gray-300">Git/GitHub</span>
+                  <span class="text-sm text-pink-400">90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-4 bg-black/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Featured Projects</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 items-center justify-between mb-8">
+          <div class="flex gap-2 flex-wrap" id="projectFilters">
+            <button class="project-filter active" data-filter="all">All</button>
+            <button class="project-filter" data-filter="ai">AI</button>
+            <button class="project-filter" data-filter="web">Web</button>
+            <button class="project-filter" data-filter="java">Java</button>
+          </div>
+          <input id="projectSearch" type="search" placeholder="Search projects..." class="project-search" />
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8" id="projectsGrid">
+          <!-- AI Chatbot Project -->
+          <div class="project-card glass-card p-6 group cursor-pointer" data-category="ai web" data-search="ai chatbot openrouter javascript" data-aos="fade-up" data-aos-delay="100" onclick="openProjectModal('ai-chatbot')">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <div class="w-full h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
+                <i data-feather="message-circle" class="w-16 h-16 text-purple-400"></i>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <span class="text-white text-sm font-medium">Click to view details</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">AI Chatbot</h3>
+            <p class="text-gray-300 mb-4">Interactive conversational assistant integrated with OpenRouter API, supporting text and image-based inputs.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">JavaScript</span>
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">API Integration</span>
+              <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">OpenRouter</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-pink-500/20 text-pink-300 hover:bg-pink-500/30 transition-colors">
+                <i data-feather="external-link" class="w-4 h-4"></i> Live Demo
+              </a>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 transition-colors">
+                <i data-feather="github" class="w-4 h-4"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <!-- Task Manager Project -->
+          <div class="project-card glass-card p-6 group cursor-pointer" data-category="java web" data-search="task manager java mysql crud" data-aos="fade-up" data-aos-delay="200" onclick="openProjectModal('task-manager')">
+            <div class="relative overflow-hidden rounded-lg mb-4">
+              <div class="w-full h-48 bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center">
+                <i data-feather="check-square" class="w-16 h-16 text-pink-400"></i>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <span class="text-white text-sm font-medium">Click to view details</span>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-pink-400 transition-colors">Task Manager Application</h3>
+            <p class="text-gray-300 mb-4">Full-featured CRUD-based task management system with Java backend and MySQL database.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">Java</span>
+              <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">MySQL</span>
+              <span class="px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-xs">CRUD</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-pink-500/20 text-pink-300 hover:bg-pink-500/30 transition-colors">
+                <i data-feather="external-link" class="w-4 h-4"></i> Live Demo
+              </a>
+              <a href="#" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-500/20 text-purple-300 hover:bg-purple-500/30 transition-colors">
+                <i data-feather="github" class="w-4 h-4"></i> GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">GitHub Repositories</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+          <p class="text-gray-400 mt-4">10+ repositories focusing on Java and web development projects</p>
+        </div>
+
+        <div class="flex justify-end mb-6">
+          <select id="repoSort" class="project-search max-w-[240px]">
+            <option value="updated">Sort: Most Recent</option>
+            <option value="stars">Sort: Most Starred</option>
+          </select>
+        </div>
+
+        <div id="githubRepos" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Repositories will be loaded dynamically -->
+        </div>
+
+        <div class="text-center mt-8">
+          <a href="https://github.com/kav488" target="_blank" class="inline-flex items-center gap-2 glass-card px-6 py-3 text-purple-300 hover:text-pink-400 transition-all hover:bg-white/10 rounded-lg">
+            <i data-feather="github" class="w-5 h-5"></i>
+            View More on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Services</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+          <p class="text-gray-400 mt-4">Services I offer to help bring your ideas to life</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Web Development -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="globe" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Web Development</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Full-stack web development using modern frameworks like React, JavaScript, and Tailwind CSS. Responsive designs that work on all devices.</p>
+          </div>
+
+          <!-- AI Integration -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="brain" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">AI Solutions</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Integrate AI and machine learning into your applications. Custom chatbots, data analysis, and intelligent automation solutions.</p>
+          </div>
+
+          <!-- Backend Development -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 bg-gradient-to-r from-pink-500 to-orange-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="server" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Backend Development</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Robust backend systems with Java and Spring Boot. Database design, API development, and scalable architecture.</p>
+          </div>
+
+          <!-- Database Design -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-14 h-14 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="database" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Database Design</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Efficient database architecture and optimization. MySQL, data modeling, and performance tuning for enterprise applications.</p>
+          </div>
+
+          <!-- Code Consultation -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="500">
+            <div class="w-14 h-14 bg-gradient-to-r from-yellow-500 to-pink-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="code" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Code Review</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Expert code review and optimization services. Best practices, performance improvement, and architectural guidance.</p>
+          </div>
+
+          <!-- Custom Solutions -->
+          <div class="glass-card p-8 hover:bg-white/10 transition-all" data-aos="fade-up" data-aos-delay="600">
+            <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center mb-6">
+              <i data-feather="zap" class="w-7 h-7 text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Custom Solutions</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">Tailor-made solutions for unique business challenges. From concept to deployment, end-to-end development support.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 bg-black/20">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+          <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">Get In Touch</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="space-y-8" data-aos="fade-right">
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+              <p class="text-gray-300 mb-8">I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology.</p>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="phone" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Phone</p>
+                  <p class="text-white font-medium">+94 71 444 4119</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="mail" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Email</p>
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wkaveesha2004@gmail.com" target="_blank" rel="noopener noreferrer" class="text-white font-medium hover:text-pink-400 transition-colors">wkaveesha2004@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="linkedin" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">LinkedIn</p>
+                  <a href="https://www.linkedin.com/in/kaveesha-gimhani-0a7a10348" target="_blank" class="text-white font-medium hover:text-pink-400 transition-colors">linkedin.com/in/kaveesha</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="github" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">GitHub</p>
+                  <a href="https://github.com/kav488" target="_blank" class="text-white font-medium hover:text-pink-400 transition-colors">github.com/kav488</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="thumbs-up" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Facebook</p>
+                  <a href="https://www.facebook.com/your-profile" target="_blank" class="text-white font-medium hover:text-pink-400 transition-colors">facebook.com/your-profile</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 glass-card p-4 hover:bg-white/10 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <i data-feather="camera" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-gray-400">Instagram</p>
+                  <a href="https://www.instagram.com/your-username" target="_blank" class="text-white font-medium hover:text-pink-400 transition-colors">instagram.com/your-username</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card p-8" data-aos="fade-left">
+            <h3 class="text-xl font-bold text-white mb-6">Send a Message</h3>
+            <form class="space-y-6">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <input type="text" placeholder="Your Name" class="w-full glass-card px-4 py-3 text-gray-100 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                </div>
+                <div>
+                  <input type="email" placeholder="Your Email" class="w-full glass-card px-4 py-3 text-gray-100 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+                </div>
+              </div>
+              <div>
+                <input type="text" placeholder="Subject" class="w-full glass-card px-4 py-3 text-gray-100 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500 transition-all">
+              </div>
+              <div>
+                <textarea rows="5" placeholder="Your Message" class="w-full glass-card px-4 py-3 text-gray-100 placeholder-gray-400 outline-none focus:ring-2 focus:ring-pink-500 transition-all resize-none"></textarea>
+              </div>
+              <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-500 py-3 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-pink-500/25 transform hover:scale-105 transition-all">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Quick Tools -->
+  <aside id="quickTools" class="quick-tools glass-card p-3" aria-label="Quick tools">
+    <button id="copyEmailBtn" class="tool-btn" title="Copy email">
+      <i data-feather="copy" class="w-4 h-4"></i>
+      <span>Email</span>
+    </button>
+    <button id="focusModeBtn" class="tool-btn" title="Focus mode">
+      <i data-feather="aperture" class="w-4 h-4"></i>
+      <span>Focus</span>
+    </button>
+    <button id="scrollTopBtn" class="tool-btn" title="Go to top">
+      <i data-feather="arrow-up" class="w-4 h-4"></i>
+      <span>Top</span>
+    </button>
+    <button id="terminalModeBtn" class="tool-btn" title="Terminal mode">
+      <i data-feather="terminal" class="w-4 h-4"></i>
+      <span>CLI</span>
+    </button>
+  </aside>
+
+  <div id="terminalPanel" class="terminal-panel hidden" aria-hidden="true">
+    <div class="terminal-head">
+      <p>Portfolio Terminal</p>
+      <button id="closeTerminalBtn" class="text-gray-300 hover:text-white">x</button>
+    </div>
+    <div id="terminalOutput" class="terminal-output">
+      <p>Type a command: <span>about</span>, <span>projects</span>, <span>skills</span>, <span>help</span></p>
+    </div>
+    <div class="terminal-input-wrap">
+      <span>&gt;</span>
+      <input id="terminalInput" type="text" autocomplete="off" placeholder="Enter command" />
+    </div>
+  </div>
+
+  <div id="easterEgg" class="easter-egg hidden">Hidden mode unlocked</div>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="p-8">
+        <div class="flex justify-between items-start mb-6">
+          <h3 id="modalTitle" class="text-2xl font-bold text-white"></h3>
+          <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white transition-colors">
+            <i data-feather="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+        <div id="modalContent">
+          <!-- Modal content will be populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 glass-card py-8 text-center">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="text-gray-400">© 2026 Kaveesha Gimhani. All rights reserved.</p>
+      <p id="visitorCounter" class="text-xs text-gray-400 mt-2">Visits: 0</p>
+      <div class="flex justify-center gap-6 mt-4">
+        <a href="https://github.com/kav488" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors" aria-label="GitHub">
+          <i data-feather="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/kaveesha-gimhani-0a7a10348" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors" aria-label="LinkedIn">
+          <i data-feather="linkedin" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.facebook.com/your-profile" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors" aria-label="Facebook">
+          <i data-feather="thumbs-up" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.instagram.com/your-username" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors" aria-label="Instagram">
+          <i data-feather="camera" class="w-5 h-5"></i>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=wkaveesha2004@gmail.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-pink-400 transition-colors" aria-label="Email Kaveesha">
+          <i data-feather="mail" class="w-5 h-5"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
